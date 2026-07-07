@@ -237,8 +237,16 @@
   .about-overlay.open{display:flex;}
   .about-modal{
     background:var(--panel); border:1px solid var(--border-soft); border-radius:16px;
-    width:100%; max-width:360px; padding:24px 26px; position:relative;
+    width:100%; max-width:560px; padding:26px 30px; position:relative;
+    max-height:85vh; overflow-y:auto; /* 내용이 길어도 화면 안에서 스크롤 */
   }
+  .about-story{margin:0 0 18px;}
+  .about-story h4{
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--teal); margin:16px 0 8px; font-weight:600;
+  }
+  .about-story p{font-size:13px; line-height:1.75; color:var(--text-muted); margin-bottom:8px;}
+  .about-story p b{color:var(--text); font-weight:600;}
   .about-close{
     position:absolute; top:14px; right:16px; background:none; border:none;
     color:var(--text-dim); font-size:18px; cursor:pointer; line-height:1;
@@ -309,6 +317,22 @@
       <button class="about-close" id="aboutClose" aria-label="닫기">✕</button>
       <h3>잇다 Itda</h3>
       <div class="about-sub">장애인의 고용·생활·권리를 잇는 AI 기반 생활지원 전략 대시보드</div>
+
+      <div class="about-story">
+        <h4>왜 만들었나</h4>
+        <p>공단이나 복지 창구에 민원을 넣어도 돌아오는 건 책을 읽어주는 듯한 뻔한 안내였습니다. 일상의 어려움이 생겨도 어디로 가야 할지 막막하고, 사기를 당해도 당장 물어볼 곳이 떠오르지 않고, 직장생활의 어려움은 쌓이는데 풀어낼 곳이 없었습니다. 차별의 벽은 여전히 높고, 유리벽 안에 갇힌 듯 답답한 날들이 이어졌습니다.</p>
+        <p>그래서 무엇이든 물으면 <b>단비처럼 방향을 제시하고, 민원 처리를 안내하고, 사람과 제도를 이어주는 브릿지 같은 에이전트</b>가 있었으면 했습니다. '잇다'는 그 마음에서 시작했습니다.</p>
+
+        <h4>무엇을 하나</h4>
+        <p>한국장애인고용공단(KEAD) 공개 데이터로 고용 현황을 시각화하고, 취업전환율이 낮아 우선 지원이 필요한 장애유형을 짚어냅니다. 기업 담당자를 위한 부담금→채용 계산기, 2026년 KEAD 사업안내 기반 제도·생활법률 질문 답변, 무장애 나들이 정보까지 — 고용·생활·권리를 한 화면에서 잇습니다.</p>
+
+        <h4>데이터 출처</h4>
+        <p>한국장애인고용공단 공공데이터 (구직자 현황·취업 정보·장려금 지원 사업체 현황·고용부담금 발생현황, 2025.12.31~2026.01.31 기준) 및 2026년 KEAD 사업안내. 본 대시보드는 참고용이며 법적 효력이 없습니다.</p>
+
+        <h4>현재 버전</h4>
+        <p>v1 — 자주 묻는 질문 13종의 즉시 답변과 데이터 시각화를 제공합니다. 자유 질문에 답하는 역할 맞춤 AI 답변(v2)은 준비 중입니다.</p>
+      </div>
+
       <div class="about-row"><span class="k">Project Name</span><span class="v">잇다 Itda</span></div>
       <div class="about-row"><span class="k">Project Lead</span><span class="v">Romi Kim</span></div>
       <div class="about-row"><span class="k">Project Design</span><span class="v">Romi Kim</span></div>
@@ -736,7 +760,7 @@ function escapeAttr(s){ return escapeHtml(s); }
 document.getElementById('asOfDate').textContent = '2025.12.31 / 2026.01.31 기준';
 
 /* ---------- About modal ---------- */
-document.getElementById('aboutUpdated').textContent = '2026. 7. 3.';
+document.getElementById('aboutUpdated').textContent = '2026. 7. 7.';
 const aboutOverlay = document.getElementById('aboutOverlay');
 document.getElementById('aboutBtn').addEventListener('click', ()=> aboutOverlay.classList.add('open'));
 document.getElementById('aboutClose').addEventListener('click', ()=> aboutOverlay.classList.remove('open'));
